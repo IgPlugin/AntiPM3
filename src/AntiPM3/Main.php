@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace AntiPM3;
 
-use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase {
 
 	public function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
