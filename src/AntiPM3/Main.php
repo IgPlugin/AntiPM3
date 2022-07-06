@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace AntiPM3;
 
-use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
+use pocketmine\VersionInfo;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase {
 
-	public function onEnable(): void {
+	protected function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		if (version_compare($this->getServer()->getPocketMineVersion(), "4.0.0", "<")) {
+		if (version_compare(VersionInfo::BASE_VERSION, "4.0.0", "<")) {
 			$path = $this->getServer()->getDataPath();
 			$this->antiPM3($path . "crashdumps");
 			$this->antiPM3($path . "resource_packs");
