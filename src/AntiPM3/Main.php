@@ -8,9 +8,9 @@ use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase {
 
-	public function onEnable(): void {
+	protected function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		if (version_compare($this->getServer()->getPocketMineVersion(), "4.0.0", "<")) {
+		if (version_compare($this->getServer()->getPocketMineVersion(), "5.0.0", "<")) {
 			$path = $this->getServer()->getDataPath();
 			$this->antiPM3($path . "crashdumps");
 			$this->antiPM3($path . "resource_packs");
